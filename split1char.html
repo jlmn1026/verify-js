@@ -1,0 +1,36 @@
+split("") vs Array.from("xxxx") <br />
+push F12 to open deverloper tools
+
+<script>
+  const strings = Array.from({ length: 10000000 }).reduce((accum, current) => {
+    return accum + "a";
+  }, "");
+
+  const testSplit = () => {
+    const result = strings.split("");
+    // console.log(result);
+  };
+
+  const testArrayFrom = () => {
+    const result = Array.from(strings);
+    // console.log(result);
+  };
+
+  const testArrayFrom2 = () => {
+    const result = Array.from(
+      "aiueokakikukekosasisusesoあいうえおかきくけこさしすせそ"
+    );
+    // console.log(result);
+  };
+
+  startTime = performance.now();
+  testSplit();
+  endTime = performance.now();
+
+  console.log("testSplit", endTime - startTime);
+
+  startTime = performance.now();
+  testArrayFrom();
+  endTime = performance.now();
+  console.log("testArrayFrom", endTime - startTime);
+</script>

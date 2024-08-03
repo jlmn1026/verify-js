@@ -6,11 +6,15 @@ Link
       link: "reduceRight.html",
       title: "reduceRight vs reverse&reduce on Speed",
     },
+    {
+      link: "split1char.html",
+      title: "split vs Array.from() on split string to 1 char",
+    },
   ];
   window.onload = () => {
-    const linkHtmls = links.map((link) => {
-      return `<a href='${link.link}'>${link.title}</a>`;
-    });
+    const linkHtmls = links.reduce((accum, link) => {
+      return accum + `<a href='${link.link}'>${link.title}</a><br />`;
+    }, "");
     const target = document.getElementById("links");
     target.innerHTML = linkHtmls;
   };
