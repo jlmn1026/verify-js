@@ -1,0 +1,17 @@
+Link
+<div id="links"></div>
+<script>
+  const links = [
+    {
+      link: "reduceRight.html",
+      title: "reduceRight vs reverse&reduce on Speed",
+    },
+  ];
+  window.onload = () => {
+    const linkHtmls = links.map((link) => {
+      return `<a href='${link.link}'>${link.title}</a>`;
+    });
+    const target = document.getElementById("links");
+    target.innerHTML = linkHtmls;
+  };
+</script>

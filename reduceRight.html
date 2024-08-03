@@ -1,0 +1,36 @@
+ReduceRight vs reverse&reduce on Speed <br />
+push F12 to open deverloper tools
+
+<script>
+  const arys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const testReduceRight = () => {
+    const result = arys.reduceRight((accum, current) => {
+      return accum + current;
+    }, 0);
+  };
+
+  const testReverseAndReduce = () => {
+    const result = arys.toReversed().reduce((accum, current) => {
+      return accum + current;
+    }, 0);
+  };
+
+  // test
+  const count = 10000000;
+
+  startTime = performance.now();
+  Array.from({ length: count }).forEach(() => {
+    testReduceRight();
+  });
+  endTime = performance.now();
+
+  console.log("testReduceRight", endTime - startTime);
+
+  startTime = performance.now();
+  Array.from({ length: count }).forEach(() => {
+    testReverseAndReduce();
+  });
+  endTime = performance.now();
+  console.log("testReverseAndReduce", endTime - startTime);
+</script>
